@@ -8250,7 +8250,7 @@ window.onload=function()
 		G.ready=true;
 		var script=document.createElement('script');
 		script.id='metascript';
-		script.setAttribute('src','/metaLegacy.js?r='+Math.random());//we add a random bit to the URL to prevent caching
+		script.setAttribute('src','https://xminota.github.io/metaLegacy.js?r='+Math.random());//we add a random bit to the URL to prevent caching
 		script.onload=function()
 		{
 			Meta();
