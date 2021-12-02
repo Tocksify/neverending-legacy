@@ -8248,26 +8248,14 @@ window.onload=function()
 	if (!G.ready)
 	{
 		G.ready=true;
-		if (top!=self)
+		var script=document.createElement('script');
+		script.id='metascript';
+		script.setAttribute('src','/metaLegacy.js?r='+Math.random());//we add a random bit to the URL to prevent caching
+		script.onload=function()
 		{
-			l('deleteOnLoadContent').innerHTML=''+
-				'<div class="framed bgDark fancyText bitBiggerText" style="width:480px;margin:auto;padding:16px 24px;">'+
-				'<div class="barred">Oops. Wrong address!</div>'+
-				'<div>It looks like you\'re accessing NeverEnding Legacy from another URL than the official one.<br>'+
-				'You can <a href="//orteil.dashnet.org/legacy/" target="_blank">play NeverEnding Legacy over here</a>!'+
-				'</div></div>';
+			Meta();
+			G.LoadResources();
 		}
-		else
-		{
-			var script=document.createElement('script');
-			script.id='metascript';
-			script.setAttribute('src','//orteil.dashnet.org/metaLegacy.js?r='+Math.random());//we add a random bit to the URL to prevent caching
-			script.onload=function()
-			{
-				Meta();
-				G.LoadResources();
-			}
-			document.head.appendChild(script);
-		}
+		document.head.appendChild(script);
 	}
 };
